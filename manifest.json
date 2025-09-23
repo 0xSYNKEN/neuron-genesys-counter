@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "Genesys Deck Scorer",
+  "version": "1.0.0",
+  "description": "Genesys 포맷 포인트 계산기",
+  "permissions": [
+    "activeTab"
+  ],
+  "host_permissions": [
+    "https://www.db.yugioh-card.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.db.yugioh-card.com/yugiohdb/member_deck.action*"
+      ],
+      "js": ["content.js", "score.js"],
+      "css": ["style.css"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["score.json", "*.json"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
